@@ -61,3 +61,25 @@ Sedangkan int fakto = n * faktorialDC(n-1);: Digunakan dalam metode Divide and C
 4.  pangkatBF(): Bekerja secara linear. Jika memangkatkan $a^n$, maka akan terjadi $n$ kali operasi perkalian dalam satu jalur perulangan. Sedangkan pangkatDC(): Bekerja dengan membagi pangkat ($n$) menjadi dua bagian secara terus-menerus ($n/2$) hingga mencapai base case. Ini jauh lebih efisien karena hasil perpangkatan yang sama tidak perlu dihitung ulang dari nol, melainkan dikombinasikan dari sub-masalah yang sudah diselesaikan.
 
 ---
+
+# Percobaan 3
+
+## Soal
+
+1.	Kenapa dibutuhkan variable mid pada method TotalDC()?
+2.	Untuk apakah statement di bawah ini dilakukan dalam TotalDC()?
+3.	Kenapa diperlukan penjumlahan hasil lsum dan rsum seperti di bawah ini?
+4.	Apakah base case dari totalDC()?
+5.	Tarik Kesimpulan tentang cara kerja totalDC()
+
+---
+
+## Jawaban
+
+1.  Variabel mid dibutuhkan sebagai titik tengah untuk membagi array menjadi dua bagian (kiri dan kanan). Ini adalah inti dari tahap Divide, di mana rentang data yang besar dipecah menjadi dua sub-masalah yang lebih kecil agar bisa diproses secara rekursif.
+2.  kalo lsum (Left Sum) menghitung total nilai untuk bagian kiri array dari indeks l sampai mid. maka rsum (Right Sum) menghitung total nilai untuk bagian kanan array dari indeks mid+1 sampai r.
+3.  Penjumlahan ini merupakan tahap Combine (penggabungan). Setelah array dipecah-pecah dan dihitung nilai terkecilnya, hasilnya harus dijumlahkan kembali ke atas untuk mendapatkan total keseluruhan dari seluruh elemen array yang diminta
+4.  Base case dari method totalDC() adalah saat nilai indeks kiri sama dengan indeks kanan (if (l == r)). Kondisi ini menandakan bahwa array telah dipecah hingga menyisakan satu elemen saja, sehingga fungsi akan langsung mengembalikan nilai elemen tersebut (return arr[l]) dan berhenti melakukan rekursi.
+5.  Cara kerja totalDC() mengikuti pola Divide and Conquer:Divide: Membagi array menjadi dua bagian terus-menerus menggunakan variabel mid.Conquer: Menyelesaikan perhitungan secara rekursif pada setiap bagian hingga mencapai base case (satu elemen).Combine: Menggabungkan (menjumlahkan) hasil dari tiap sub-bagian tersebut (lsum + rsum) hingga kembali ke pemanggil utama dan menghasilkan total nilai akhir.
+
+---
