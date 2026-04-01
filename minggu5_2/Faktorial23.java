@@ -2,12 +2,14 @@ package minggu5_2;
 
 public class Faktorial23 {
     int faktorialBF(int n) {
-        int fakto = 1;
-        for (int i = 1; i <= n; i++) {
-            fakto = fakto * i;
+            int fakto = 1;
+            int i = 1;
+            while (i <= n) {
+                fakto = fakto * i;
+                i++;
+            }
+            return fakto;
         }
-        return fakto;
-    }
 
     int faktorialDC(int n) {
         if (n == 1) {
